@@ -3213,7 +3213,9 @@
 	padding:25px 20px 30px 220px;
 	float: right;
 }
-
+.social-share:hover{
+	cursor: pointer;;
+}
 .city_blog_text.event2 .social_icon,
 .city_blog_text.event2 > p{
 	display:block;
