@@ -238,6 +238,10 @@
 	float:left;
 	width:100%;
 }
+.event_categories_text:hover {
+	border: 2px solid #DF193A;
+	border-radius: 5px;
+}
 .event_sidebar{
 	background-color:#fff;
 	padding:20px 20px;
