@@ -7,30 +7,36 @@
     ga('create', 'Google_Analytics_Tracking_Id', 'auto');
     ga('send', 'pageview');
 
+
 let PDFfile = "";
-document.getElementsByClassName("pdf-button").forEach(item => {
-    item.addEventListener('click', event => {
+console.log("XXXXXXXXXXXXXXXXXXXXXXXX");
+   var li =  document.getElementsByClassName("pdf-button")
+   for(i = 0; i<li.length;i++){
+       let item = li[i];
+    item.addEventListener('click',() => {
         if (item.classList.contains("pdf-button-one")){
-            PDFfile = "./resources/schoolPrevention.pdf";
+            console.log('1')
+            PDFfile = "schoolPrevention.pdf";
             window.location.href = "./notice.html"
         }else if(item.classList.contains("pdf-button-two")){
-            PDFfile = "./resources/schoolPrevention.pdf";
+            PDFfile = "schoolPrevention.pdf";
             window.location.href = "./notice.html"
         }else if(item.classList.contains("pdf-button-three")){
-            PDFfile = "./resources/schoolPrevention.pdf";
+            PDFfile = "schoolPrevention.pdf";
             window.location.href = "./notice.html"
         }else if(item.classList.contains("pdf-button-four")){
-            PDFfile = "./resources/schoolPrevention.pdf";
+            PDFfile = "schoolPrevention.pdf";
             window.location.href = "./notice.html"
         }else if(item.classList.contains("pdf-button-five")){
-            PDFfile = "./resources/schoolPrevention.pdf";
+            PDFfile = "schoolPrevention.pdf";
             window.location.href = "./notice.html"
         }else{
-            PDFfile = "./resources/schoolPrevention.pdf";
+            PDFfile = "schoolPrevention.pdf";
             window.location.href = "./notice.html"
         }
     });
-});
+   }
+
 //set custom options
 const viewerConfig = {
     defaultViewMode: "FIT_PAGE",  //default mode is set to fit_page
@@ -49,13 +55,13 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
         content: {
             //Location of PDF
             location: {
-                url: PDFfile,
+                url: "./resources/"+ PDFfile ,
             },
         },
         /* Pass meta data of file */
         metaData: {
             /* file name */
-            fileName: "Inline.pdf"
+            fileName: "bhbs"
         }
     }, viewerConfig);
 

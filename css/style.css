@@ -1536,6 +1536,12 @@ a{
 	font-weight:bold;
 	margin:0px 0px 14px 0px;
 }
+.city_news_text a h2:hover{
+	color: #df193a;
+}
+.city_news_list_text a h5:hover{
+	color: #df193a;
+}
 .city_news_meta{
 	margin-bottom:18px;
 }
