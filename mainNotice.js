@@ -7,6 +7,30 @@
     ga('create', 'Google_Analytics_Tracking_Id', 'auto');
     ga('send', 'pageview');
 
+let PDFfile = "";
+document.getElementsByClassName("pdf-button").forEach(item => {
+    item.addEventListener('click', event => {
+        if (item.classList.contains("pdf-button-one")){
+            PDFfile = "./resources/schoolPrevention.pdf";
+            window.location.href = "./notice.html"
+        }else if(item.classList.contains("pdf-button-two")){
+            PDFfile = "./resources/schoolPrevention.pdf";
+            window.location.href = "./notice.html"
+        }else if(item.classList.contains("pdf-button-three")){
+            PDFfile = "./resources/schoolPrevention.pdf";
+            window.location.href = "./notice.html"
+        }else if(item.classList.contains("pdf-button-four")){
+            PDFfile = "./resources/schoolPrevention.pdf";
+            window.location.href = "./notice.html"
+        }else if(item.classList.contains("pdf-button-five")){
+            PDFfile = "./resources/schoolPrevention.pdf";
+            window.location.href = "./notice.html"
+        }else{
+            PDFfile = "./resources/schoolPrevention.pdf";
+            window.location.href = "./notice.html"
+        }
+    });
+});
 //set custom options
 const viewerConfig = {
     defaultViewMode: "FIT_PAGE",  //default mode is set to fit_page
@@ -25,7 +49,7 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
         content: {
             //Location of PDF
             location: {
-                url: "./resources/MLnotesAndrewNg.pdf",
+                url: PDFfile,
             },
         },
         /* Pass meta data of file */
