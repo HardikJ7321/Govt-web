@@ -34,7 +34,6 @@
         <link href="css/color.css" rel="stylesheet">
         <!-- Responsive CSS -->
         <link href="css/responsive.css" rel="stylesheet">
-        <script src="./mainNotice.js"></script>
     </head>
     <body class="demo-5">
         <!--WRAPPER START--> 
@@ -85,20 +84,19 @@
         </div>
         <div class="row">
             <div class="col-md-2">
-                <!-- style="width: 17%;margin-right:30px;margin-left: 30px;" -->
                 <div class="sidebar_widget">
-                    <div class="event_sidebar" style="margin-left: 70px;">
-                        <h4 class="sidebar_heading">Fellow Us</h4>
+                    <div class="event_sidebar" style="margin-left: 70px;border: 1px solid #14284B;">
+                        <h4 class="sidebar_heading">Share <i class="fas fa-share-alt"></i></h4>
                         <div class="city_top_social">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google"></i></a></li>
+                                <li><a class="social-share facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="social-share twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="social-share email"><i class="fa fa-google"></i></a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="event_sidebar" style="margin-bottom: 0;margin-left: 70px;">
-                        <h4 class="sidebar_heading">Recent Post</h4>
+                    <div class="event_sidebar" style="margin-bottom: 0;margin-left: 70px;border: 1px solid #14284B;">
+                        <h4 class="sidebar_heading">Recent News</h4>
                         <div class="event_categories">
                             <ul>
                                 <li>
@@ -107,7 +105,6 @@
                                             <div class="box-layer layer-1"></div>
                                             <div class="box-layer layer-2"></div>
                                             <div class="box-layer layer-3"></div>
-                                            <img src="extra-images/post-fig.jpg" alt="">
                                         </figure>
                                         <div class="event_categories_text">
                                             <h6><span>5 ldeas for Fun</span> Family Activites</h6>
@@ -124,7 +121,6 @@
                                             <div class="box-layer layer-1"></div>
                                             <div class="box-layer layer-2"></div>
                                             <div class="box-layer layer-3"></div>
-                                            <img src="extra-images/post-fig1.jpg" alt="">
                                         </figure>
                                         <div class="event_categories_text">
                                             <h6><span>5 ldeas for Fun</span> Family Activites</h6>
@@ -141,7 +137,6 @@
                                             <div class="box-layer layer-1"></div>
                                             <div class="box-layer layer-2"></div>
                                             <div class="box-layer layer-3"></div>
-                                            <img src="extra-images/post-fig2.jpg" alt="">
                                         </figure>
                                         <div class="event_categories_text">
                                             <h6><span>5 ldeas for Fun</span> Family Activites</h6>
@@ -158,7 +153,6 @@
                                             <div class="box-layer layer-1"></div>
                                             <div class="box-layer layer-2"></div>
                                             <div class="box-layer layer-3"></div>
-                                            <img src="extra-images/post-fig3.jpg" alt="">
                                         </figure>
                                         <div class="event_categories_text">
                                             <h6><span>5 ldeas for Fun</span> Family Activites</h6>
@@ -175,7 +169,7 @@
                 </div>
             </div>
             <div class="col-md-9">							
-                <div id="adobe-dc-view" style="border: 2px solid black;margin:0 0 30px 90px;"></div> 
+                <div id="adobe-dc-view" style="border: 2px solid #DF193A;margin:0 0 30px 90px;"></div> 
             </div>
         </div>
         <footer>
@@ -254,6 +248,8 @@
         <!-- Scripts -->
         <script type="text/javascript" src="https://documentcloud.adobe.com/view-sdk/main.js">
         </script>
+         <!--WRAPPER END-->
+		 <script src="./mainNotice.js"></script>
         <!--Jquery Library-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!--Bootstrap core JavaScript-->
@@ -274,11 +270,35 @@
         <script src="js/waypoints.js"></script>
         <!--Pretty Photo JavaScript-->
         <script src="js/waypoints-sticky.js"></script>
-        <!--Image Filterable JavaScript-->
-       <script src="js/jquery-filterable.js"></script>
-       <!--Pretty Photo JavaScript-->
-       <script src="js/jquery.nice-select.min.js"></script>
        <script src="js/custom.js"></script>
        <script>document.documentElement.className = 'js';</script>
+       <script>
+        //sharing functionality 
+            $(document).ready(function() {
+        setShareLinks();    
+        function socialWindow(url) {
+            var left = (screen.width - 570) / 2;
+            var top = (screen.height - 570) / 2;
+            var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;
+            window.open(url, "NewWindow", params);
+        }    
+        function setShareLinks() {
+            var pageUrl = encodeURIComponent(document.URL);
+            var tweet = encodeURIComponent($("meta[property='og:description']").attr("content"));
+            $(".social-share.facebook").on("click", function() {
+                url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
+                socialWindow(url);
+            });
+            $(".social-share.twitter").on("click", function() {
+                url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
+                socialWindow(url);
+            });
+            $(".social-share.email").on("click", function() {
+                url = "mailto:?subject=News%20from%20USDHSS&body=This%20is%20the%20link%20to%20public%20announcement%20from%20the%20Department%20of%20Health%20and%20Social%20Services%20%20"+pageUrl;					
+                socialWindow(url);
+            });
+        }       
+});
+       </script>
     </body>
 </html>        

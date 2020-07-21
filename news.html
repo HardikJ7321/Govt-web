@@ -432,7 +432,7 @@
 										<li><a href="#">01</a></li>
 										<li><a href="#">02</a></li>
 										<li><a href="#">....</a></li>
-										<li><a href="#">08</a></li>
+										<li><a href="#">05</a></li>
 										<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
 									</ul>
 								</div>
@@ -538,43 +538,35 @@
          <script src="js/waypoints.js"></script>
          <!--Pretty Photo JavaScript-->
          <script src="js/waypoints-sticky.js"></script>
-         <!--Image Filterable JavaScript-->
-		<script src="js/jquery-filterable.js"></script>
-		<!--Pretty Photo JavaScript-->
-        <script src="js/jquery.nice-select.min.js"></script>
     	<script src="js/custom.js"></script>
-		<script>document.documentElement.className = 'js';</script>
-		<!-- sharing functionality -->
+		<script>document.documentElement.className = 'js';</script>	
 		<script>
-		$(document).ready(function() {
-
-			setShareLinks();
-			
-			function socialWindow(url) {
-				var left = (screen.width - 570) / 2;
-				var top = (screen.height - 570) / 2;
-				var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;
-				window.open(url, "NewWindow", params);
-			}
-			
-			function setShareLinks() {
-				var pageUrl = encodeURIComponent(document.URL);
-				var tweet = encodeURIComponent($("meta[property='og:description']").attr("content"));
-				$(".social-share.facebook").on("click", function() {
-					url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
-					socialWindow(url);
-				});
-				$(".social-share.twitter").on("click", function() {
-					url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
-					socialWindow(url);
-				});
-				$(".social-share.email").on("click", function() {
-					url = "mailto:?subject=News%20from%20USDHSS&body=This%20is%20the%20link%20to%20public%20announcement%20from%20the%20Department%20of%20Health%20and%20Social%20Services%20%20"+pageUrl;					
-					socialWindow(url);
-				});
-			}
-			
+			//sharing functionality 
+			$(document).ready(function() {
+					setShareLinks();    
+					function socialWindow(url) {
+						var left = (screen.width - 570) / 2;
+						var top = (screen.height - 570) / 2;
+						var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;
+						window.open(url, "NewWindow", params);
+					}    
+					function setShareLinks() {
+						var pageUrl = encodeURIComponent(document.URL);
+						var tweet = encodeURIComponent($("meta[property='og:description']").attr("content"));
+						$(".social-share.facebook").on("click", function() {
+							url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
+							socialWindow(url);
+						});
+						$(".social-share.twitter").on("click", function() {
+							url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
+							socialWindow(url);
+						});
+						$(".social-share.email").on("click", function() {
+							url = "mailto:?subject=News%20from%20USDHSS&body=This%20is%20the%20link%20to%20public%20announcement%20from%20the%20Department%20of%20Health%20and%20Social%20Services%20%20"+pageUrl;					
+							socialWindow(url);
+						});
+					}       
 			});
-		</script>
+		</script>	
     </body>
 </html>
