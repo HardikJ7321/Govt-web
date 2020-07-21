@@ -239,8 +239,8 @@
 	width:100%;
 }
 .event_categories_text:hover {
-	border: 2px solid #DF193A;
-	border-radius: 5px;
+	color: #DF193A;
+	text-decoration: underline;
 }
 .event_sidebar{
 	background-color:#fff;

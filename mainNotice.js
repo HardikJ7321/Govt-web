@@ -7,83 +7,105 @@
     ga('create', 'Google_Analytics_Tracking_Id', 'auto');
     ga('send', 'pageview');
 
-
-let PDFfile = "";
-console.log("XXXXXXXXXXXXXXXXXXXXXXXX");
-   var li =  document.getElementsByClassName("pdf-button")
-   for(i = 0; i<li.length;i++){
-       let item = li[i];
-    item.addEventListener('click',() => {
-        if (item.classList.contains("pdf-button-one")){
-            console.log('1')
-            PDFfile = "schoolPrevention.pdf";
-            window.location.href = "./notice.html"
-        }else if(item.classList.contains("pdf-button-two")){
-            PDFfile = "schoolPrevention.pdf";
-            window.location.href = "./notice.html"
-        }else if(item.classList.contains("pdf-button-three")){
-            PDFfile = "schoolPrevention.pdf";
-            window.location.href = "./notice.html"
-        }else if(item.classList.contains("pdf-button-four")){
-            PDFfile = "schoolPrevention.pdf";
-            window.location.href = "./notice.html"
-        }else if(item.classList.contains("pdf-button-five")){
-            PDFfile = "schoolPrevention.pdf";
-            window.location.href = "./notice.html"
-        }else{
-            PDFfile = "schoolPrevention.pdf";
-            window.location.href = "./notice.html"
-        }
-    });
-   }
-
 //set custom options
 const viewerConfig = {
     defaultViewMode: "FIT_PAGE",  //default mode is set to fit_page
     embedMode: "SIZED_CONTAINER"     //display mode is set to inline
 };
 
-document.addEventListener("adobe_dc_view_sdk.ready", function () {
-    var adobeDCView = new AdobeDC.View({
-        /* Pass your registered client id */
-        clientId: "5236c1439e15412a9ce423f4a606d16a",   //use your View Client Id
-        /* Pass the div id in which PDF should be rendered */
-        divId: "adobe-dc-view",
+var PDFfile = "noticeOne.pdf";
+var li =  document.getElementsByClassName("pdf-button")
+for(i = 0; i<li.length;i++){
+    let item = li[i];
+    item.addEventListener('click',() => {
+        if (item.classList.contains("pdf-button-one")){
+            PDFfile = "noticeOne.pdf";
+            localStorage.setItem("pdfName",PDFfile);
+            window.open(
+                "./notice.html",
+                '_blank' 
+              );
+        }else if(item.classList.contains("pdf-button-two")){
+            PDFfile = "noticeTwo.pdf";
+            localStorage.setItem("pdfName",PDFfile);
+            window.open(
+                "./notice.html",
+                '_blank' 
+              );
+        }else if(item.classList.contains("pdf-button-three")){    
+            PDFfile = "noticeThree.pdf";
+            localStorage.setItem("pdfName",PDFfile);
+            window.open(
+                "./notice.html",
+                '_blank' 
+              );
+        }else if(item.classList.contains("pdf-button-four")){            
+            PDFfile = "noticeFour.pdf";
+            localStorage.setItem("pdfName",PDFfile);
+            window.open(
+                "./notice.html",
+                '_blank' 
+              );
+        }else if(item.classList.contains("pdf-button-five")){           
+            PDFfile = "noticeFive.pdf";
+            localStorage.setItem("pdfName",PDFfile);
+            window.open(
+                "./notice.html",
+                '_blank' 
+              );
+        }else{
+            PDFfile = "noticeOne.pdf";
+            localStorage.setItem("pdfName",PDFfile);
+            window.open(
+                "./notice.html",
+                '_blank' 
+              );
+        }
+        
     });
-    adobeDCView.previewFile({
-        /* Pass information on how to access the file */
-        content: {
-            //Location of PDF
-            location: {
-                url: "./resources/"+ PDFfile ,
+}
+if(document.querySelectorAll(".adobe-dc-view").length !== 0){
+    document.addEventListener("adobe_dc_view_sdk.ready", function () {
+        var adobeDCView = new AdobeDC.View({
+            /* Pass your registered client id */
+            clientId: "5236c1439e15412a9ce423f4a606d16a",   //use your View Client Id
+            /* Pass the div id in which PDF should be rendered */
+            divId: "adobe-dc-view",
+        });
+        adobeDCView.previewFile({
+            /* Pass information on how to access the file */
+            content: {
+                //Location of PDF
+                location: {
+                    url: "./resources/"+ localStorage.getItem("pdfName") ,
+                },
             },
-        },
-        /* Pass meta data of file */
-        metaData: {
-            /* file name */
-            fileName: "bhbs"
-        }
-    }, viewerConfig);
-
-    adobeDCView.registerCallback(
-        AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
-        function (event) {
-            switch(event.type){
-                case 'DOCUMENT_OPEN': ga('send', 'event', 'DOCUMENT_OPEN', event.data.fileName, 'open document');
-                break;
-                case 'PAGE_VIEW' : ga('send', 'event', 'PAGE_VIEW', `${event.data.pageNumber} of ${event.data.fileName}`, 'view page');
-                break;
-                case 'DOCUMENT_DOWNLOAD':ga('send', 'event', 'DOCUMENT_DOWNLOAD', event.data.fileName, 'download document'); 
-                break;
-                case 'TEXT_COPY' :  ga('send', 'event', 'TEXT_COPY', `${event.data.copiedText} of ${event.data.fileName}`, 'copy text');
-                break;
-                default: ;
+            /* Pass meta data of file */
+            metaData: {
+                /* file name */
+                fileName: localStorage.getItem("pdfName")
             }
-        },
-        {
-            enablePDFAnalytics: true,//turn on pdf analytics
-        }
-    );
-});
+        }, viewerConfig);
 
+        adobeDCView.registerCallback(
+            AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
+            function (event) {
+                switch(event.type){
+                    case 'DOCUMENT_OPEN': ga('send', 'event', 'DOCUMENT_OPEN', event.data.fileName, 'open document');
+                    break;
+                    case 'PAGE_VIEW' : ga('send', 'event', 'PAGE_VIEW', `${event.data.pageNumber} of ${event.data.fileName}`, 'view page');
+                    break;
+                    case 'DOCUMENT_DOWNLOAD':ga('send', 'event', 'DOCUMENT_DOWNLOAD', event.data.fileName, 'download document'); 
+                    break;
+                    case 'TEXT_COPY' :  ga('send', 'event', 'TEXT_COPY', `${event.data.copiedText} of ${event.data.fileName}`, 'copy text');
+                    break;
+                    default: ;
+                }
+            },
+            {
+                enablePDFAnalytics: true,//turn on pdf analytics
+            }
+        );
+    });
+}
 

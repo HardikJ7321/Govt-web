@@ -1536,6 +1536,9 @@ a{
 	font-weight:bold;
 	margin:0px 0px 14px 0px;
 }
+.news-page-link:hover{
+	text-decoration: underline #df193a;
+}
 .city_news_text a h2:hover{
 	color: #df193a;
 }
