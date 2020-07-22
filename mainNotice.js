@@ -72,7 +72,7 @@ if(document.querySelectorAll(".adobe-dc-view").length !== 0){
             AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
             function (event) {
                 switch(event.type){
-                    case 'DOCUMENT_OPEN': ga('send', 'event', 'DOCUMENT_OPEN', event.data.fileName, 'open document');
+                    case 'DOCUMENT_OPEN': ga('send', 'event', 'OPEN_DOCUMENT', event.data.fileName, 'open document');
                     break;
                     case 'PAGE_VIEW' : ga('send', 'event', 'PAGE_VIEW', `${event.data.pageNumber} of ${event.data.fileName}`, 'view page');
                     break;
