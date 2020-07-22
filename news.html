@@ -561,18 +561,18 @@
 						$(".social-share.facebook").on("click", function() {
 							url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
 							socialWindow(url);
-							ga('send', 'event', 'SHARE_NEWS', pageUrl, 'share to facebook');
+							ga('send', 'event', 'SHARE_NEWS', localStorage.getItem("pdfName"), 'share to facebook');
 						});
 						$(".social-share.twitter").on("click", function() {
 							url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
 							socialWindow(url);
-							ga('send', 'event', 'SHARE_NEWS', pageUrl, 'share to twitter');
+							ga('send', 'event', 'SHARE_NEWS', localStorage.getItem("pdfName"), 'share to twitter');
 
 						});
 						$(".social-share.email").on("click", function() {
 							url = "mailto:?subject=News%20from%20USDHSS&body=This%20is%20the%20link%20to%20public%20announcement%20from%20the%20Department%20of%20Health%20and%20Social%20Services%20%20"+pageUrl;					
 							socialWindow(url);
-							ga('send', 'event', 'SHARE_NEWS', pageUrl, 'share to gmail');
+							ga('send', 'event', 'SHARE_NEWS', localStorage.getItem("pdfName"), 'share to gmail');
 
 						});
 					}       
