@@ -68,7 +68,7 @@ if(document.querySelectorAll(".adobe-dc-view").length !== 0){
     document.addEventListener("adobe_dc_view_sdk.ready", function () {
         var adobeDCView = new AdobeDC.View({
             /* Pass your registered client id */
-            clientId: "5236c1439e15412a9ce423f4a606d16a",   //use your View Client Id
+            clientId: "096b097fc7284678a650f6f37265c528",   //use your View Client Id
             /* Pass the div id in which PDF should be rendered */
             divId: "adobe-dc-view",
         });
