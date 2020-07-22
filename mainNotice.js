@@ -7,12 +7,6 @@
     ga('create', 'UA-171409849-2', 'auto');
     ga('send', 'pageview');
 
-//set custom options
-const viewerConfig = {
-    defaultViewMode: "FIT_PAGE",  //default mode is set to fit_page
-    embedMode: "SIZED_CONTAINER"     //display mode is set to inline
-};
-
 var PDFfile = "noticeOne.pdf";
 var li =  document.getElementsByClassName("pdf-button")
 for(i = 0; i<li.length;i++){
@@ -64,6 +58,19 @@ for(i = 0; i<li.length;i++){
         
     });
 }
+
+//set custom options
+const viewerConfig = {
+    defaultViewMode: "FIT_PAGE",  //default mode is set to fit_page
+    embedMode: "SIZED_CONTAINER",     //display mode is set to inline
+    showPageControls : true,  //display controls
+    dockPageControls:true, //user can dock/undock
+    showAnnotationTools: true, //display annotation tools
+    showDownloadPDF : true,  //display download option
+    showPrintPDF:true,  //display print option
+    showLeftHandPanel: false   
+};
+
 if(document.querySelectorAll(".adobe-dc-view").length !== 0){
     document.addEventListener("adobe_dc_view_sdk.ready", function () {
         var adobeDCView = new AdobeDC.View({
@@ -95,9 +102,13 @@ if(document.querySelectorAll(".adobe-dc-view").length !== 0){
                     break;
                     case 'PAGE_VIEW' : ga('send', 'event', 'PAGE_VIEW', `${event.data.pageNumber} of ${event.data.fileName}`, 'view page');
                     break;
-                    case 'DOCUMENT_DOWNLOAD':ga('send', 'event', 'DOCUMENT_DOWNLOAD', event.data.fileName, 'download document'); 
+                    case 'TEXT_SEARCH' : ga('send', 'event', 'TEXT_SEARCH', `${event.data.searchedText} in ${event.data.fileName}`, 'search text');
                     break;
-                    case 'TEXT_COPY' :  ga('send', 'event', 'TEXT_COPY', `${event.data.copiedText} of ${event.data.fileName}`, 'copy text');
+                    case 'DOCUMENT_PRINT' : ga('send', 'event', 'DOCUMENT_PRINT', event.data.fileName, 'print document'); 
+                    break;
+                    case 'DOCUMENT_DOWNLOAD': ga('send', 'event', 'DOCUMENT_DOWNLOAD', event.data.fileName, 'download document'); 
+                    break;
+                    case 'TEXT_COPY': ga('send', 'event', 'TEXT_COPY', `${event.data.copiedText} from ${event.data.fileName}`, 'copy text');
                     break;
                     default: ;
                 }
