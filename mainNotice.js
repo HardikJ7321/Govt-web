@@ -16,42 +16,42 @@ for(i = 0; i<li.length;i++){
             PDFfile = "noticeOne.pdf";
             localStorage.setItem("pdfName",PDFfile);
             window.open(
-                "./notice.html",
+                "notice.html",
                 '_blank' 
               );
         }else if(item.classList.contains("pdf-button-two")){
             PDFfile = "noticeTwo.pdf";
             localStorage.setItem("pdfName",PDFfile);
             window.open(
-                "./notice.html",
+                "notice.html",
                 '_blank' 
               );
         }else if(item.classList.contains("pdf-button-three")){    
             PDFfile = "noticeThree.pdf";
             localStorage.setItem("pdfName",PDFfile);
             window.open(
-                "./notice.html",
+                "notice.html",
                 '_blank' 
               );
         }else if(item.classList.contains("pdf-button-four")){            
             PDFfile = "noticeFour.pdf";
             localStorage.setItem("pdfName",PDFfile);
             window.open(
-                "./notice.html",
+                "notice.html",
                 '_blank' 
               );
         }else if(item.classList.contains("pdf-button-five")){           
             PDFfile = "noticeFive.pdf";
             localStorage.setItem("pdfName",PDFfile);
             window.open(
-                "./notice.html",
+                "notice.html",
                 '_blank' 
               );
         }else{
             PDFfile = "noticeOne.pdf";
             localStorage.setItem("pdfName",PDFfile);
             window.open(
-                "./notice.html",
+                "notice.html",
                 '_blank' 
               );
         }
