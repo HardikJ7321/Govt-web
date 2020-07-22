@@ -88,7 +88,7 @@ if(document.querySelectorAll(".adobe-dc-view").length !== 0){
                 }
             },
             {
-                enablePDFAnalytics: true,//turn on pdf analytics
+                enablePDFAnalytics: true 
             }
         );
     });
