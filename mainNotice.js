@@ -36,11 +36,11 @@ for(i = 0; i<li.length;i++){
 if(document.querySelectorAll(".adobe-dc-view").length !== 0){
     //set custom options
     const viewerConfig = {
+        showAnnotationTools: true,
         defaultViewMode: "FIT_PAGE",  //default mode is set to fit_page
         embedMode: "SIZED_CONTAINER",     //display mode is set to inline
         showPageControls : true,  //display controls
         dockPageControls:true, //user can dock/undock
-        showAnnotationTools: true, //display annotation tools
         showDownloadPDF : true,  //display download option
         showPrintPDF:true,  //display print option
         showLeftHandPanel: false   
