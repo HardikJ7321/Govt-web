@@ -5,7 +5,7 @@
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     
     ga('create', 'UA-171409849-2', 'auto');
-    ga('send', 'pageview', 'hardik', 'viewing pages');
+    ga('send', 'event', 'hardik','view pa', 'viewing pages');
 
 var PDFfile = "noticeOne.pdf";
 var li =  document.getElementsByClassName("pdf-button")
