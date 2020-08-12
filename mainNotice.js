@@ -6,12 +6,7 @@
     
     ga('create', 'UA-171409849-2', 'auto');
     ga('send', 'event', 'hardik','view pa', 'viewing pages');
-    _gaq.push(['_setCustomVar',
-      1,             // This custom var is set to slot #1.  Required parameter.
-      'name',   // The name of the custom variable.  Required parameter.
-      'hardik',     // Sets the value of "User Type" to "Member" or "Visitor" depending on status.  Required parameter.
-       2             // Sets the scope to session-level.  Optional parameter.
-   ]);
+   
 
 var PDFfile = "noticeOne.pdf";
 var li =  document.getElementsByClassName("pdf-button")
